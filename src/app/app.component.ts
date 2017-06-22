@@ -8,6 +8,12 @@ import { TransferState } from '../modules/transfer-state/transfer-state';
     <a routerLink="/">Home</a>
     <a routerLink="/lazy">Lazy</a>
     <router-outlet></router-outlet>
+
+    <mwl-calendar-month-view
+      [viewDate]="viewDate"
+      [events]="events">
+    </mwl-calendar-month-view>
+    
   `,
   styles: [
     `h1 {
@@ -16,6 +22,10 @@ import { TransferState } from '../modules/transfer-state/transfer-state';
   ]
 })
 export class AppComponent implements OnInit {
+
+  viewDate = new Date();
+  events = [];
+
   constructor(private cache: TransferState) {}
   ngOnInit() {
     this.cache.set('cached', true);

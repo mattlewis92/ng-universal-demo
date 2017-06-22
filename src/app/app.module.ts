@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeView } from './home/home-view.component';
+import { CalendarModule } from 'angular-calendar';
 import { TransferHttpModule } from '../modules/transfer-http/transfer-http.module';
 
 
@@ -16,7 +17,8 @@ import { TransferHttpModule } from '../modules/transfer-http/transfer-http.modul
     RouterModule.forRoot([
       { path: '', component: HomeView, pathMatch: 'full'},
       { path: 'lazy', loadChildren: './+lazy/lazy.module#LazyModule'}
-    ])
+    ]),
+    CalendarModule.forRoot()
   ],
   declarations: [ AppComponent, HomeView ],
   exports: [ AppComponent ]
